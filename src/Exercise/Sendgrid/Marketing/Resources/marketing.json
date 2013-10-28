@@ -4,7 +4,7 @@
     "description": "SendGrid Marketing Email API allows users to access data and interact with the Marketing Email functionality of SendGrid website",
     "operations": {
         "ListCategories": {
-            "httpMethod": "POST",
+            "httpMethod": "GET",
             "uri": "category/list.json",
             "summary": "Lists all categories",
             "responseClass": "ListCategoriesResponse"

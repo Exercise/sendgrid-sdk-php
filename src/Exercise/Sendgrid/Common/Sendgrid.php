@@ -1,6 +1,6 @@
 <?php
 
-namespace Exercise\Common\Sendgrid;
+namespace Exercise\Sendgrid\Common;
 
 use Guzzle\Service\Builder\ServiceBuilder;
 use Guzzle\Service\Builder\ServiceBuilderLoader;
@@ -52,4 +52,5 @@ class Sendgrid extends ServiceBuilder
     public static function getDefaultServiceDefinition()
     {
         return __DIR__  . '/Resources/sendgrid-config.json';
-    }}
+    }
+}
