@@ -1,0 +1,347 @@
+{
+    "name": "SendGrid Marketing Email API",
+    "baseUrl": "https://sendgrid.com/api/newsletter/",
+    "description": "SendGrid Marketing Email API allows users to access data and interact with the Marketing Email functionality of SendGrid website",
+    "operations": {
+        "ListCategories": {
+            "httpMethod": "POST",
+            "uri": "category/list.json",
+            "summary": "Lists all categories",
+            "responseClass": "ListCategoriesResponse"
+        },
+        "CreateCategory": {
+            "httpMethod": "POST",
+            "uri": "category/create.json",
+            "summary": "Creates new category",
+            "parameters": {
+                "category": {
+                    "location": "postField",
+                    "type": "string"
+                }
+            }
+        },
+        "AddList": {
+            "httpMethod": "POST",
+            "uri": "lists/add.json",
+            "summary": "Create a new Recipient List",
+            "additionalParameters": {
+                "location": "postField"
+            }
+        },
+        "EditList": {
+            "httpMethod": "POST",
+            "uri": "lists/edit.json",
+            "summary": "Rename a Recipient List.",
+            "parameters": {
+                "list": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "This is the name of the Recipient List to be renamed."
+                },
+                "newlist": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "Specify the new name for the Recipient List."
+                }
+            }
+        },
+        "DeleteList": {
+            "httpMethod": "POST",
+            "uri": "lists/delete.json",
+            "summary": "Remove a Recipient List from your account.",
+            "parameters": {
+                "list": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "Must be an existing Recipient List. Remove this Recipient List."
+                }
+            }
+        },
+        "GetList": {
+            "httpMethod": "POST",
+            "uri": "lists/get.xml",
+            "summary": "List all Recipient Lists on your account, or check if a particular List exists.",
+            "responseClass": "GetListResponse",
+            "parameters": {
+                "list": {
+                    "location": "postField",
+                    "type": "string",
+                    "description": "Check for this particular list. (To list all Recipient Lists on your account exclude this parameter)"
+                }
+            }
+        },
+        "AddEmail": {
+            "httpMethod": "POST",
+            "uri": "add.json",
+            "summary": "Create a new Marketing Email.",
+            "parameters": {
+                "identity": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "Must be an existing Identity. The Identity that will be used for the Marketing Email being created."
+                },
+                "name": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "The name that will be used for the Marketing Email being created."
+                },
+                "subject": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "The subject that will be used for the Marketing Email being created."
+                },
+                "text": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "The text portion of the Marketing Email being created."
+                },
+                "html": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "The html portion of the Marketing Email being created."
+                }
+            }
+        },
+        "AddIdentity": {
+            "httpMethod": "POST",
+            "uri": "identity/add.json",
+            "summary": "Create a new Address.",
+            "parameters": {
+                "identity": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "Create an Address named this."
+                },
+                "name": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "Specify the name to be used for this Address."
+                },
+                "email": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "Specify the email address to be used for this Address."
+                },
+                "replyto": {
+                    "location": "postField",
+                    "type": "string",
+                    "description": "Specify an email address to be used in the Reply-To field. If not defined, will default to the email parameter."
+                },
+                "address": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "Specify the physical address to be used for this Address."
+                },
+                "city": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "Specify the city to be used for this Address."
+                },
+                "state": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "Specify the state code to be used for this Address."
+                },
+                "zip": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "Specify the zip code to be used for this Address."
+                },
+                "country": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "Specify the country code to be used for this Address."
+                }
+            }
+        },
+        "EditIdentity": {
+            "httpMethod": "POST",
+            "uri": "identity/edit.json",
+            "summary": "Edit an existing Address.",
+            "parameters": {
+                "identity": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "The Address you wish to edit."
+                },
+                "newidentity": {
+                    "location": "postField",
+                    "type": "string",
+                    "description": "Specify the new name to be used for this Address."
+                },
+                "name": {
+                    "location": "postField",
+                    "type": "string",
+                    "description": "Specify the new name to be used for this Address."
+                },
+                "email": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "Specify the email address to be used for this Address."
+                },
+                "replyto": {
+                    "location": "postField",
+                    "type": "string",
+                    "description": "Specify an email address to be used in the Reply-To field. If not defined, will default to the email parameter."
+                },
+                "address": {
+                    "location": "postField",
+                    "type": "string",
+                    "description": "Specify the new physical address to be used for this Address."
+                },
+                "city": {
+                    "location": "postField",
+                    "type": "string",
+                    "description": "Specify the new city to be used for this Address."
+                },
+                "state": {
+                    "location": "postField",
+                    "type": "string",
+                    "description": "Specify the new state code to be used for this Address."
+                },
+                "zip": {
+                    "location": "postField",
+                    "type": "string",
+                    "description": "Specify the new zip code to be used for this Address."
+                },
+                "country": {
+                    "location": "postField",
+                    "type": "string",
+                    "description": "Specify the new country code to be used for this Address."
+                }
+            }
+        },
+        "GetIdentity": {
+            "httpMethod": "POST",
+            "uri": "identity/get.json",
+            "summary": "Retrieve information associated with a particular Address.",
+            "responseClass": "GetIdentityResponse",
+            "parameters": {
+                "identity": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "Must be an existing Address. Retrieve contents of the specified Address."
+                }
+            }
+        },
+        "ListIdentities": {
+            "httpMethod": "POST",
+            "uri": "identity/list.json",
+            "summary": "List all Addresses on your account, or check if a particular Address exists.",
+            "responseClass": "ListIdentities",
+            "parameters": {
+                "identity": {
+                    "location": "postField",
+                    "type": "string",
+                    "description": "Must be an existing Address. Check for this particular Identity. (To list all Addresses on your account exclude this parameter)"
+                }
+            }
+        },
+        "DeleteIdentity": {
+            "httpMethod": "POST",
+            "uri": "identity/delete.json",
+            "summary": "Remove an Address from your account",
+            "parameters": {
+                "identity": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "Must be an existing Address. Remove the specified Address from your account."
+                }
+            }
+        }
+    },
+    "models": {
+        "SuccessResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "location": "json",
+                    "type": "message"
+                }
+            }
+        },
+        "ListCategoriesResponse": {
+            "type": "array",
+            "additionalProperties": {
+                "location": "json"
+            },
+            "items": {
+                "type": "object",
+                "location": "json"
+            }
+        },
+        "GetListResponse": {
+            "type": "array",
+            "additionalProperties": {
+                "location": "xml"
+            },
+            "items": {
+                "type": "array"
+            }
+        },
+        "GetIdentityResponse": {
+            "type": "array",
+            "location": "json",
+            "properties": {
+                "city": {
+                    "location": "json",
+                    "type": "string"
+                },
+                "name": {
+                    "location": "json",
+                    "type": "string"
+                },
+                "zip": {
+                    "location": "json",
+                    "type": "string"
+                },
+                "replyto": {
+                    "location": "json",
+                    "type": "string"
+                },
+                "country": {
+                    "location": "json",
+                    "type": "string"
+                },
+                "state": {
+                    "location": "json",
+                    "type": "string"
+                },
+                "address": {
+                    "location": "json",
+                    "type": "string"
+                },
+                "email": {
+                    "location": "json",
+                    "type": "string"
+                }
+            }
+        },
+        "ListIdentities": {
+            "type": "array",
+            "additionalProperties": {
+                "location": "json"
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "name": "exercise/sendgrid-sdk-php",
+    "description":"Sendgrid SDK for PHP",
+    "keywords":["sendgrid", "sdk", "guzzle"],
+    "type":"library",
+    "license":"Apache-2.0",
+    "authors":[
+        {
+            "name":"Alex Kovalevych",
+            "name":"Andriy Savchenko"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "guzzle/guzzle": "~3.7.0"
+    },
+    "suggest": {
+        "doctrine/cache": "Adds support for caching of credentials and responses",
+        "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
+        "monolog/monolog": "Adds support for logging HTTP requests and responses"
+    },
+    "require-dev": {
+        "doctrine/cache": "~1.0",
+        "monolog/monolog": "1.4.*",
+        "phpunit/phpunit": "3.7.*",
+        "symfony/class-loader": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Exercise": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

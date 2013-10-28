@@ -1,0 +1,14 @@
+{
+    "class": "Exercise\\Sendgrid\\Common\\Sendgrid",
+    "services": {
+        "default_settings": {
+            "params": {}
+        },
+
+        "marketing": {
+            "alias": "Marketing",
+            "extends": "default_settings",
+            "class": "Exercise\\Sendgrid\\Marketing\\MarketingClient"
+        }
+    }
+}
