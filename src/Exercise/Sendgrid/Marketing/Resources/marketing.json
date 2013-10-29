@@ -4,7 +4,7 @@
     "description": "SendGrid Marketing Email API allows users to access data and interact with the Marketing Email functionality of SendGrid website",
     "operations": {
         "ListCategories": {
-            "httpMethod": "GET",
+            "httpMethod": "POST",
             "uri": "category/list.json",
             "summary": "Lists all categories",
             "responseClass": "ListCategoriesResponse"
@@ -107,6 +107,68 @@
                     "type": "string",
                     "required": true,
                     "description": "The html portion of the Marketing Email being created."
+                }
+            }
+        },
+        "AddEmailsToList": {
+            "httpMethod": "POST",
+            "uri": "lists/email/add.json",
+            "summary": "Add one or more emails to a Recipient List",
+            "class": "Exercise\\Sendgrid\\Marketing\\Command\\DuplicateAggregatorCommand",
+            "parameters": {
+                "list": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "The list which you are adding email addresses too."
+                },
+                "data": {
+                    "location": "postField",
+                    "type": "array",
+                    "required": true,
+                    "description": "Specify the name, email address, and additional fields to add to the specified Recipient List."
+                }
+            }
+        },
+        "AddRecipientsToEmail": {
+            "httpMethod": "POST",
+            "uri": "recipients/add.json",
+            "summary": "Assign a List to a Marketing Email.",
+            "parameters": {
+                "list": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "The name of the list to assign to the marketing email"
+                },
+                "name": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "The name of the marketing email"
+                }
+            }
+        },
+        "ScheduleEmail": {
+            "httpMethod": "POST",
+            "uri": "schedule/add.json",
+            "summary": "Schedule a delivery time for an existing Marketing Email.",
+            "parameters": {
+                "name": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "Marketing Email to schedule delivery for. (If Marketing Email should be sent now, include no additional parameters.)"
+                },
+                "at": {
+                    "location": "postField",
+                    "type": "string",
+                    "description": "Date / Time to schedule marketing email Delivery. Date / Time must be provided in ISO 8601 format (YYYY-MM-DD HH:MM:SS+-HH:MM)"
+                },
+                "after": {
+                    "location": "postField",
+                    "type": "integer",
+                    "description": "Number of minutes until delivery should occur. Must be a positive integer."
                 }
             }
         },
