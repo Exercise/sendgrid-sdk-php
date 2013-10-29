@@ -3,11 +3,11 @@
 namespace Exercise\Sendgrid\Marketing;
 
 use Guzzle\Common\Collection;
-use Guzzle\Service\Client;
 use Guzzle\Service\Description\ServiceDescription;
+use Exercise\Sendgrid\Common\AbstractClient;
 use Exercise\Sendgrid\Common\Plugin\SendgridAuthPlugin;
 
-class MarketingClient extends Client
+class MarketingClient extends AbstractClient
 {
     public static function factory($config = array())
     {
