@@ -36,7 +36,7 @@ class SendgridAuthPlugin implements EventSubscriberInterface
      */
     public function onRequestCreate(Event $event)
     {
-        $query = $event['request']->getQuery();
+        $query = $event['request']->getPostFields();
         $query
             ->set('api_user', $this->username)
             ->set('api_key', $this->password)
