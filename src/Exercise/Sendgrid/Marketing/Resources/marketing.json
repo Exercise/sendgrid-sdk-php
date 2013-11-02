@@ -99,14 +99,27 @@
                 "text": {
                     "location": "postField",
                     "type": "string",
-                    "required": true,
+                    "required": false,
                     "description": "The text portion of the Marketing Email being created."
                 },
                 "html": {
                     "location": "postField",
                     "type": "string",
-                    "required": true,
+                    "required": false,
                     "description": "The html portion of the Marketing Email being created."
+                }
+            }
+        },
+        "Email": {
+            "httpMethod": "POST",
+            "uri": "get.json",
+            "summary": "Retrieve the contents of an existing Marketing Email.",
+            "parameters": {
+                "name": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "Retrieve the content of an existing Marketing Email."
                 }
             }
         },
@@ -127,6 +140,24 @@
                     "type": "array",
                     "required": true,
                     "description": "Specify the name, email address, and additional fields to add to the specified Recipient List."
+                }
+            }
+        },
+        "ListEmails": {
+            "httpMethod": "POST",
+            "uri": "lists/email/get.json",
+            "summary": "Get the email addresses and associated fields for a Recipient List.",
+            "parameters": {
+                "list": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": true,
+                    "description": "The list you are searching."
+                },
+                "email": {
+                    "location": "postField",
+                    "type": "string",
+                    "description": "Optional email addresses to search for in the Recipient List."
                 }
             }
         },
